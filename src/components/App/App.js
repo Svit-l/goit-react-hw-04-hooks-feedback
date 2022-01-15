@@ -1,5 +1,5 @@
 import './App.css';
-import Statistic from '../Statistic/Statistic';
+import Statistic from '../Statistic';
 import GlobalStyle from '../GlobalStyles';
 
 function App() {

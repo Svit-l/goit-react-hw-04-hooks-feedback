@@ -1,34 +1,67 @@
 import React, { Component } from 'react';
+import {
+  Statistics,
+  Title,
+  ButtonsList,
+  ButtonItem,
+  Button,
+  Subtitle,
+  FeedbacksOutput,
+  OutputItem,
+} from './StatisticStyled';
 
 class Statistic extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  static propTypes = {
+    //
   };
+
+  state = {
+    good: 5,
+    neutral: 7,
+    bad: 12,
+  };
+
+  incrementGood = () =>
+    this.setState(prevState => ({
+      good: prevState.value + 1,
+    }));
+
+  incrementNeutral = () =>
+    this.setState(prevState => ({
+      neutral: prevState.value + 1,
+    }));
+
+  incrementBad = () =>
+    this.setState(prevState => ({
+      bad: prevState.value + 1,
+    }));
 
   render() {
     return (
-      <div className="Statistics">
-        <h1>Please leave feedback</h1>
-        <ul className="ButtonsList">
-          <li>
-            <button type="button">Good</button>
-          </li>
-          <li>
-            <button type="button">Neutral</button>
-          </li>
-          <li>
-            <button type="button">Bad</button>
-          </li>
-        </ul>
-        <h2>Statistics</h2>
-        <ul className="FeedbacksOutput">
-          <li className="GoodFeedback">0</li>
-          <li className="NeutralFeedback">0</li>
-          <li className="BadFeedback">0</li>
-        </ul>
-      </div>
+      <Statistics>
+        <Title>Please leave feedback</Title>
+        <ButtonsList>
+          <ButtonItem>
+            <Button type="button">Good</Button>
+          </ButtonItem>
+          <ButtonItem>
+            <Button type="button">Neutral</Button>
+          </ButtonItem>
+          <ButtonItem>
+            <Button type="button">Bad</Button>
+          </ButtonItem>
+        </ButtonsList>
+        <Subtitle>Statistics</Subtitle>
+        <FeedbacksOutput>
+          <OutputItem className="GoodFeedback">
+            Good: {this.state.good}
+          </OutputItem>
+          <OutputItem className="NeutralFeedback">
+            Neutral: {this.state.neutral}
+          </OutputItem>
+          <OutputItem className="BadFeedback">Bad: {this.state.bad}</OutputItem>
+        </FeedbacksOutput>
+      </Statistics>
     );
   }
 }
