@@ -43,7 +43,7 @@ export const Button = styled.button`
   }
 `;
 
-export const Statistic = styled.section`
+export const StatisticSection = styled.section`
   padding: 10px;
 `;
 
@@ -57,4 +57,9 @@ export const OutputItem = styled.li`
   :not(:last-child) {
     margin-bottom: 5px;
   }
+`;
+
+export const NotificationText = styled.span`
+  text-align: center;
+  color: #487e8f;
 `;

@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+
 import GlobalStyle from '../GlobalStyles';
 import Statistics from '../Statistics/';
-// import FeedbackOptions from '../ButtonOptions';
+import Notification from '../Notification';
+import FeedbackOptions from '../ButtonOptions';
 
-// import { FeedbackWrap } from './StatisticStyled';
 import {
   FeedbackWrap,
   Title,
-  ButtonsList,
-  ButtonItem,
-  Button,
+  StatisticSection,
+  Subtitle,
 } from './StatisticStyled';
+
 function App() {
   return (
     <div className="App">
@@ -72,31 +73,38 @@ class Feedback extends Component {
   render() {
     return (
       <FeedbackWrap>
-        {/* <Title>Please leave feedback</Title> */}
+        <StatisticSection>
+          <Title>Please leave feedback</Title>
 
-        {/* <FeedbackOptions
+          <FeedbackOptions
+            options={this.state}
+            onLeaveFeedback={this.handelIncrement}
+          />
+
+          {/* <FeedbackOptions
           options={this.state}
           onLeaveFeedback={this.handelIncrement()}
         /> */}
 
-        <Title>Please leave feedback</Title>
-        <ButtonsList>
-          {Object.keys(this.state).map(key => (
-            <ButtonItem key={key}>
-              <Button
-                key={key}
-                onClick={() => {
-                  this.handelIncrement(key);
-                  // this.incrementGood(e);
-                  // this.countTotalFeedback(e);
-                  // this.countPositiveFeedbackPercentage(e);
-                }}
-              >
-                {key}
-              </Button>
-            </ButtonItem>
-          ))}
-        </ButtonsList>
+          {/* <ButtonsList>
+            {console.log(this.state)}
+            {Object.keys(this.state).map(key => (
+              <ButtonItem key={key}>
+                <Button
+                  key={key}
+                  onClick={() => {
+                    this.handelIncrement(key);
+                    // this.incrementGood(e);
+                    // this.countTotalFeedback(e);
+                    // this.countPositiveFeedbackPercentage(e);
+                  }}
+                >
+                  {key}
+                </Button>
+              </ButtonItem>
+            ))}
+          </ButtonsList> */}
+        </StatisticSection>
         {/* <ButtonItem>
             <Button
                 onClick={e => {
@@ -130,16 +138,20 @@ class Feedback extends Component {
             </Button>
           </ButtonItem> */}
         {/* </ButtonsList> */}
-
-        {this.countTotalFeedback() > 0 && (
-          <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
-          />
-        )}
+        <StatisticSection>
+          <Subtitle>Statistics</Subtitle>
+          {this.countTotalFeedback() !== 0 ? (
+            <Statistics
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          ) : (
+            <Notification message="There is no feedback"></Notification>
+          )}
+        </StatisticSection>
         {/* <Statistics>
           <Subtitle>Statistics</Subtitle>
           <FeedbacksOutput>

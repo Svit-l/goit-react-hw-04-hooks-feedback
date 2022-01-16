@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Title, ButtonsList, ButtonItem, Button } from '../App/StatisticStyled';
+import { ButtonsList, ButtonItem, Button } from '../App/StatisticStyled';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <>
-    <Title>Please leave feedback</Title>
     <ButtonsList>
+      {/* {console.log(options)} */}
       {Object.keys(options).map(key => (
         <ButtonItem key={key}>
           <Button
@@ -23,4 +23,3 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => (
 );
 
 export default FeedbackOptions;
-//
