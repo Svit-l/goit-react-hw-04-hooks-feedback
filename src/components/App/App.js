@@ -1,14 +1,114 @@
-import './App.css';
-import Statistic from '../Statistic';
+import React, { Component } from 'react';
 import GlobalStyle from '../GlobalStyles';
+
+import {
+  FeedbackWrap,
+  Statistics,
+  Title,
+  ButtonsList,
+  ButtonItem,
+  Button,
+  Subtitle,
+  FeedbacksOutput,
+  OutputItem,
+} from './StatisticStyled';
 
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Statistic />
+      <Feedback />
     </div>
   );
 }
 
 export default App;
+
+class Feedback extends Component {
+  // static propTypes = {
+  //   //
+  // };
+
+  state = {
+    good: 1,
+    neutral: 2,
+    bad: 3,
+  };
+
+  countTotalFeedback = () => {
+    // console.log(Object.values(this.state));
+    return Object.values(this.state).reduce((sum, elem) => sum + elem);
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    return Math.round((this.state.good * 100) / this.countTotalFeedback());
+  };
+
+  incrementGood = () =>
+    this.setState(prevState => ({
+      good: prevState.good + 1,
+    }));
+
+  incrementNeutral = () =>
+    this.setState(prevState => ({
+      neutral: prevState.neutral + 1,
+    }));
+
+  incrementBad = () =>
+    this.setState(prevState => ({
+      bad: prevState.bad + 1,
+    }));
+
+  render() {
+    return (
+      <FeedbackWrap>
+        <Title>Please leave feedback</Title>
+        <ButtonsList>
+          <ButtonItem>
+            <Button
+              onClick={e => {
+                this.incrementGood(e);
+                this.countTotalFeedback(e);
+                this.countPositiveFeedbackPercentage(e);
+              }}
+            >
+              Good
+            </Button>
+          </ButtonItem>
+          <ButtonItem>
+            <Button
+              onClick={e => {
+                this.incrementNeutral(e);
+                // this.total(e);
+              }}
+            >
+              Neutral
+            </Button>
+          </ButtonItem>
+          <ButtonItem>
+            <Button
+              onClick={e => {
+                this.incrementBad(e);
+                // this.total(e);
+              }}
+            >
+              Bad
+            </Button>
+          </ButtonItem>
+        </ButtonsList>
+        <Statistics>
+          <Subtitle>Statistics</Subtitle>
+          <FeedbacksOutput>
+            <OutputItem>Good: {this.state.good}</OutputItem>
+            <OutputItem>Neutral: {this.state.neutral}</OutputItem>
+            <OutputItem>Bad: {this.state.bad}</OutputItem>
+            <OutputItem>Total: {this.countTotalFeedback()}</OutputItem>
+            <OutputItem>
+              Positsve feedback: {this.countPositiveFeedbackPercentage()}%
+            </OutputItem>
+          </FeedbacksOutput>
+        </Statistics>
+      </FeedbackWrap>
+    );
+  }
+}

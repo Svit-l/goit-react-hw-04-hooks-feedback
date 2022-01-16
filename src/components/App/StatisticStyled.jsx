@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Statistics = styled.div`
+export const FeedbackWrap = styled.div`
+  width: 280px;
+  padding: 10px;
   margin: 0 auto;
 `;
 
@@ -38,6 +40,10 @@ export const Button = styled.button`
     color: white;
     border: 1px solid #636363;
   }
+`;
+
+export const Statistics = styled.section`
+  padding: 10px;
 `;
 
 export const Subtitle = styled.h2`
