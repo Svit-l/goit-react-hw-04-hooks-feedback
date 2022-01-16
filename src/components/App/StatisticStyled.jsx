@@ -43,7 +43,7 @@ export const Button = styled.button`
   }
 `;
 
-export const StatisticSection = styled.section`
+export const SectionWrap = styled.section`
   padding: 10px;
 `;
 

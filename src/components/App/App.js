@@ -4,13 +4,9 @@ import GlobalStyle from '../GlobalStyles';
 import Statistics from '../Statistics/';
 import Notification from '../Notification';
 import FeedbackOptions from '../ButtonOptions';
+import Section from '../Section';
 
-import {
-  FeedbackWrap,
-  Title,
-  StatisticSection,
-  Subtitle,
-} from './StatisticStyled';
+import { FeedbackWrap } from './StatisticStyled';
 
 function App() {
   return (
@@ -73,9 +69,7 @@ class Feedback extends Component {
   render() {
     return (
       <FeedbackWrap>
-        <StatisticSection>
-          <Title>Please leave feedback</Title>
-
+        <Section title="Please leave feedback">
           <FeedbackOptions
             options={this.state}
             onLeaveFeedback={this.handelIncrement}
@@ -104,7 +98,7 @@ class Feedback extends Component {
               </ButtonItem>
             ))}
           </ButtonsList> */}
-        </StatisticSection>
+        </Section>
         {/* <ButtonItem>
             <Button
                 onClick={e => {
@@ -138,8 +132,7 @@ class Feedback extends Component {
             </Button>
           </ButtonItem> */}
         {/* </ButtonsList> */}
-        <StatisticSection>
-          <Subtitle>Statistics</Subtitle>
+        <Section title="Statistics">
           {this.countTotalFeedback() !== 0 ? (
             <Statistics
               good={this.state.good}
@@ -151,7 +144,7 @@ class Feedback extends Component {
           ) : (
             <Notification message="There is no feedback"></Notification>
           )}
-        </StatisticSection>
+        </Section>
         {/* <Statistics>
           <Subtitle>Statistics</Subtitle>
           <FeedbacksOutput>
