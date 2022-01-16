@@ -25,6 +25,7 @@ export const ButtonItem = styled.li`
 `;
 
 export const Button = styled.button`
+  text-transform: capitalize;
   background-color: white;
   color: black;
   padding: 5px;
@@ -42,7 +43,7 @@ export const Button = styled.button`
   }
 `;
 
-export const Statistics = styled.section`
+export const Statistic = styled.section`
   padding: 10px;
 `;
 

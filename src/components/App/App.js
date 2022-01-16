@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import GlobalStyle from '../GlobalStyles';
+import Statistics from '../Statistics/';
+// import FeedbackOptions from '../ButtonOptions';
 
+// import { FeedbackWrap } from './StatisticStyled';
 import {
   FeedbackWrap,
-  Statistics,
   Title,
   ButtonsList,
   ButtonItem,
   Button,
-  Subtitle,
-  FeedbacksOutput,
-  OutputItem,
 } from './StatisticStyled';
-
 function App() {
   return (
     <div className="App">
@@ -30,9 +28,9 @@ class Feedback extends Component {
   // };
 
   state = {
-    good: 1,
-    neutral: 2,
-    bad: 3,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
   countTotalFeedback = () => {
@@ -44,29 +42,64 @@ class Feedback extends Component {
     return Math.round((this.state.good * 100) / this.countTotalFeedback());
   };
 
-  incrementGood = () =>
-    this.setState(prevState => ({
-      good: prevState.good + 1,
-    }));
+  handelIncrement = key => {
+    this.setState(prevState => {
+      return { [key]: prevState[key] + 1 };
+    });
+  };
 
-  incrementNeutral = () =>
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
-    }));
+  // handelIncrement = e => {
+  //   this.setState(prevState => ({
+  //     [e.target.value]: prevState[e.target.value] + 1,
+  //   }));
+  // };
 
-  incrementBad = () =>
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
-    }));
+  // incrementGood = () =>
+  //   this.setState(prevState => ({
+  //     good: prevState.good + 1,
+  //   }));
+
+  // incrementNeutral = () =>
+  //   this.setState(prevState => ({
+  //     neutral: prevState.neutral + 1,
+  //   }));
+
+  // incrementBad = () =>
+  //   this.setState(prevState => ({
+  //     bad: prevState.bad + 1,
+  //   }));
 
   render() {
     return (
       <FeedbackWrap>
+        {/* <Title>Please leave feedback</Title> */}
+
+        {/* <FeedbackOptions
+          options={this.state}
+          onLeaveFeedback={this.handelIncrement()}
+        /> */}
+
         <Title>Please leave feedback</Title>
         <ButtonsList>
-          <ButtonItem>
+          {Object.keys(this.state).map(key => (
+            <ButtonItem key={key}>
+              <Button
+                key={key}
+                onClick={() => {
+                  this.handelIncrement(key);
+                  // this.incrementGood(e);
+                  // this.countTotalFeedback(e);
+                  // this.countPositiveFeedbackPercentage(e);
+                }}
+              >
+                {key}
+              </Button>
+            </ButtonItem>
+          ))}
+        </ButtonsList>
+        {/* <ButtonItem>
             <Button
-              onClick={e => {
+                onClick={e => {
                 this.incrementGood(e);
                 this.countTotalFeedback(e);
                 this.countPositiveFeedbackPercentage(e);
@@ -75,6 +108,7 @@ class Feedback extends Component {
               Good
             </Button>
           </ButtonItem>
+
           <ButtonItem>
             <Button
               onClick={e => {
@@ -94,9 +128,19 @@ class Feedback extends Component {
             >
               Bad
             </Button>
-          </ButtonItem>
-        </ButtonsList>
-        <Statistics>
+          </ButtonItem> */}
+        {/* </ButtonsList> */}
+
+        {this.countTotalFeedback() > 0 && (
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        )}
+        {/* <Statistics>
           <Subtitle>Statistics</Subtitle>
           <FeedbacksOutput>
             <OutputItem>Good: {this.state.good}</OutputItem>
@@ -107,7 +151,7 @@ class Feedback extends Component {
               Positsve feedback: {this.countPositiveFeedbackPercentage()}%
             </OutputItem>
           </FeedbacksOutput>
-        </Statistics>
+        </Statistics> */}
       </FeedbackWrap>
     );
   }
