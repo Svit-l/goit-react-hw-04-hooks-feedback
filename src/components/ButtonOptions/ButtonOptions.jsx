@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ButtonsList, ButtonItem, Button } from '../App/StatisticStyled';
+import { ButtonsList, ButtonItem, Button } from './ButtonStyled';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <>

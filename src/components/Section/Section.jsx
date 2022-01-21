@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SectionWrap, Title, Subtitle } from 'components/App/StatisticStyled';
+import { SectionWrap, Title, Subtitle } from './SectionStyled';
 
 const Section = ({ title, children }) => (
   <SectionWrap>

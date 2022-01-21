@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FeedbacksOutput, OutputItem } from '../App/StatisticStyled';
+import { FeedbacksOutput, OutputItem } from './StatisticsStyled';
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
   <FeedbacksOutput>

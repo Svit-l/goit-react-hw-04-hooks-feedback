@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import GlobalStyle from '../GlobalStyles';
+import GlobalStyle from '../../common';
 import Statistics from '../Statistics/';
 import Notification from '../Notification';
 import FeedbackOptions from '../ButtonOptions';
 import Section from '../Section';
 
-import { FeedbackWrap } from './StatisticStyled';
+import { FeedbackWrap } from './AppStyled';
 
 function App() {
   return (

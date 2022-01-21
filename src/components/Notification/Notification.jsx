@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { NotificationText } from '../App/StatisticStyled';
+import { NotificationText } from './NotificationStyled';
 
 const Notification = ({ message }) => (
   <NotificationText>{message}</NotificationText>
