@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { ButtonsList, ButtonItem, Button } from './ButtonsStyled';
 
-import { ButtonsList, ButtonItem, Button } from './ButtonStyled';
-
-const FeedbackOptions = ({ options, onLeaveFeedback }) => (
+const ButtonsOptions = ({ options, onLeaveFeedback }) => (
   <>
     <ButtonsList>
       {/* {console.log(options)} */}
@@ -22,4 +22,9 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   </>
 );
 
-export default FeedbackOptions;
+ButtonsOptions.propTypes = {
+  options: PropTypes.objectOf(PropTypes.number),
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
+
+export default ButtonsOptions;
