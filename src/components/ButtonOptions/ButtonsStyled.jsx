@@ -1,15 +1,9 @@
 import styled from 'styled-components';
 
-export const ButtonsList = styled.ul`
+export const ButtonsList = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
-`;
-
-export const ButtonItem = styled.li`
-  :not(:last-child) {
-    margin-right: 10px;
-  }
 `;
 
 export const Button = styled.button`
@@ -23,6 +17,10 @@ export const Button = styled.button`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12), 0px 3px 3px rgba(0, 0, 0, 0.14),
     0px 3px 3px rgba(0, 0, 0, 0.2);
 
+  :not(:last-child) {
+    margin-right: 10px;
+  }
+
   :focus,
   :hover {
     background-color: #636363;
@@ -30,3 +28,9 @@ export const Button = styled.button`
     border: 1px solid #636363;
   }
 `;
+
+// export const ButtonItem = styled.li`
+//   :not(:last-child) {
+//     margin-right: 10px;
+//   }
+// `;
