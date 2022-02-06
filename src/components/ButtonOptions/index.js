@@ -1,1 +1,1 @@
-export { default } from './ButtonsOptions';
+export { default } from './ButtonsOptionsHoock';

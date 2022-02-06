@@ -4,8 +4,7 @@ import React from 'react';
 import { FeedbackWrap } from './FeedbackStyled';
 import Statistics from '../Statistics';
 import Notification from '../Notification';
-import ButtonsOptions from '../ButtonOptions/ButtonsOptionsHoock';
-// import ButtonsOptions from '../ButtonOptions/ButtonsOptions';
+import ButtonsOptions from '../ButtonOptions';
 import Section from '../Section';
 
 function Feedback() {
