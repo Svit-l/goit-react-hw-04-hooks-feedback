@@ -29,8 +29,8 @@ export const Button = styled.button`
   }
 `;
 
-// export const ButtonItem = styled.li`
-//   :not(:last-child) {
-//     margin-right: 10px;
-//   }
-// `;
+export const ButtonItem = styled.li`
+  :not(:last-child) {
+    margin-right: 10px;
+  }
+`;

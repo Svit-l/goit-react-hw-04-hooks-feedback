@@ -4,8 +4,8 @@
 
 // const ButtonsOptions = ({ options, onLeaveFeedback }) => (
 //   <ButtonsList>
-//     {/* {console.log(options)} */}
-//     {Object.keys(options).map(key => (
+//     {console.log(options)}
+//     {/* {Object.keys(options).map(key => (
 //       <ButtonItem key={key}>
 //         <Button
 //           key={key}
@@ -16,7 +16,7 @@
 //           {key}
 //         </Button>
 //       </ButtonItem>
-//     ))}
+//     ))} */}
 //   </ButtonsList>
 // );
 
